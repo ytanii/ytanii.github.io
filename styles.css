@@ -1,3 +1,42 @@
-*{
+* {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05rem;
+    font-size: 20px;
+}
+
+.bold {
+    color: #003594;
+    font-weight: 700;
+
+}
+
+.nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+body {
     background: #FAF9F6;
+
+}
+
+p {
+    width: 50%;
+    white-space: normal;
+}
+
+
+.about {
+    line-height: 1.6;
+}
+
+.name {
+    font-size: 40px;
+    color: black;
 }
