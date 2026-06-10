@@ -18,16 +18,17 @@
     display: flex;
     gap: 32px;
     align-items: center;
+
 }
 
 body {
     background: #FAF9F6;
-
+    width: 700px;
+    margin: 0 auto;
 }
 
-p {
-    width: 50%;
-    white-space: normal;
+h2 {
+    font-size: 25px;
 }
 
 
@@ -38,4 +39,29 @@ p {
 .name {
     font-size: 40px;
     color: black;
+}
+
+.reading {
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+}
+
+
+.book {
+    text-align: center;
+}
+
+.book img {
+    width: 120px;
+}
+
+.book-title {
+    text-align: center;
+    margin-top: 8px;
 }
