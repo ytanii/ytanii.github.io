@@ -3,7 +3,6 @@
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.05rem;
-    font-size: 20px;
 }
 
 .bold {
@@ -23,8 +22,9 @@
 
 body {
     background: #FAF9F6;
-    width: 700px;
+    width: 800px;
     margin: 0 auto;
+    font-size: 20px;
 }
 
 h2 {
@@ -59,9 +59,62 @@ h2 {
 
 .book img {
     width: 120px;
+    height: 180px;
+    object-fit: cover;
 }
 
 .book-title {
     text-align: center;
     margin-top: 8px;
+}
+
+.article {
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.article-title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.article-date {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+code {
+    font-family: "JetBrains Mono", monospace;
+    background: #eeeae3;
+    padding: 2px 4px;
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.download-icon {
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    transform: translateY(2px);
+
+}
+
+.download-link:hover .download-icon {
+    opacity: 1;
 }
