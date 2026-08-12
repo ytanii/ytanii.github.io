@@ -25,6 +25,7 @@ body {
     width: 800px;
     margin: 0 auto;
     font-size: 20px;
+    zoom:125%
 }
 
 h2 {
@@ -81,6 +82,10 @@ a:hover {
 
 .download-link:hover .download-icon {
     opacity: 1;
+}
+
+.projects {
+    font-size: 30px;
 }
 
 .project-list li{
