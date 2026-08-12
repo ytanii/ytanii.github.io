@@ -53,43 +53,7 @@ h2 {
 }
 
 
-.book {
-    text-align: center;
-}
 
-.book img {
-    width: 120px;
-    height: 180px;
-    object-fit: cover;
-}
-
-.book-title {
-    text-align: center;
-    margin-top: 8px;
-}
-
-.article {
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-.article-title {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-.article-date {
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-code {
-    font-family: "JetBrains Mono", monospace;
-    background: #eeeae3;
-    padding: 2px 4px;
-    font-size: 18px;
-    border-radius: 3px;
-}
 
 a {
     color: #2563eb;
@@ -117,4 +81,8 @@ a:hover {
 
 .download-link:hover .download-icon {
     opacity: 1;
+}
+
+.projects{
+    font-size: 20px;
 }
