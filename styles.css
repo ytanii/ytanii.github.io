@@ -83,6 +83,7 @@ a:hover {
     opacity: 1;
 }
 
-.project-title{
-    font-size: 20px;
+.project-list li{
+    font-size: 25px;
+    font-weight: bold;
 }
