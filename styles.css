@@ -31,6 +31,7 @@ main {
     max-width: 42rem;
 }
 
+
 .nav-bar {
     display: flex;
     gap: 0.75rem 1.5rem;
@@ -82,32 +83,52 @@ h2 {
 
 a {
     color: #2563eb;
-    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 150ms ease,
+    text-decoration-color 150ms ease;
 }
 
 a:hover {
     color: #1d4ed8;
 }
 
+a:focus-visible {
+    border-radius: 0.15rem;
+    outline: 3px solid rgb(37 99 235 / 25%);
+    outline-offset: 4px;
+}
+
+.nav-bar a:not(.name) {
+    color: #4b5563;
+    text-decoration: none;
+}
+
+.nav-bar a:not(.name):hover,
+.nav-bar a[aria-current="page"] {
+    color: #111827;
+}
+
+
 .download-link {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 0.3em;
 }
 
 .download-icon {
     opacity: 0;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    transform: translateY(2px);
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(1px);
+    transition: opacity 150ms ease;
 
 }
 
-.download-link:hover .download-icon {
+.download-link:hover .download-icon,
+.download-link:focus-visible .download-icon {
     opacity: 1;
 }
-
 
 .project-list li{
     font-size: 25px;
