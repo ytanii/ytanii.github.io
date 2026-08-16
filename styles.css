@@ -24,7 +24,7 @@ h1,h2,p,ul {
 
 .bold {
     font-weight: 700;
-
+    color: #111827;
 }
 
 main {
@@ -36,6 +36,23 @@ main {
     gap: 0.75rem 1.5rem;
     align-items: baseline;
     flex-wrap: wrap;
+    margin: 0 0 3.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-bar li:first-child {
+    margin-right: auto;
+}
+
+h1 {
+    margin: 0;
+    line-height: 1.1;
+}
+
+h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
 }
 
 .about {
@@ -43,8 +60,11 @@ main {
 }
 
 .name {
-    font-size: 40px;
-    color: black;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: #111827;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
 }
 
 .reading {
@@ -57,7 +77,6 @@ main {
     gap: 20px;
 
 }
-
 
 
 
@@ -89,9 +108,6 @@ a:hover {
     opacity: 1;
 }
 
-.projects {
-    font-size: inherit;
-}
 
 .project-list li{
     font-size: 25px;
