@@ -11,13 +11,10 @@
 }
 
 .nav-bar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    gap: 32px;
-    align-items: center;
-
+    gap: 0.75rem 1.5rem;
+    align-items: baseline;
+    flex-wrap: wrap;
 }
 
 body {
@@ -25,7 +22,7 @@ body {
     width: 800px;
     margin: 0 auto;
     font-size: 20px;
-    zoom:125%
+    max-width: 48rem;
 }
 
 h2 {
@@ -85,7 +82,7 @@ a:hover {
 }
 
 .projects {
-    font-size: 30px;
+    font-size: inherit;
 }
 
 .project-list li{
