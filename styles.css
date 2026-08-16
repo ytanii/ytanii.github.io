@@ -146,3 +146,20 @@ main > ul:not(.project-list) {
 .project-list li:last-child {
     border-bottom: 0;
 }
+
+@media (max-width: 40rem) {
+    body {
+        padding: 2rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    .nav-bar {
+        gap: 0.65rem 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .nav-bar li:first-child {
+        flex-basis: 100%;
+        margin: 0 0 0.5rem;
+    }
+}
