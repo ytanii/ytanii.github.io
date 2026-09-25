@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found - Yusuf Taniyici</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav>
+<ul class="nav-bar">
+    <li><h1><a href="/" class="name">Yusuf Taniyici</a></h1></li>
+    <li><a href="/projects.html">Projects</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a class="download-link" href="/resume.pdf">Resume <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"/></svg></a></li>
+    <li><label class="theme-toggle" title="Switch theme"><input type="checkbox" id="theme" aria-label="Switch theme" autocomplete="off"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></label></li>
+</ul>
+</nav>
+<script>
+    // Remember the theme choice across pages; only stored when it differs from the system theme
+    const toggle = document.getElementById("theme");
+    const systemDark = matchMedia("(prefers-color-scheme: dark)").matches;
+    try {
+        const saved = localStorage.getItem("theme");
+        toggle.checked = saved !== null && (saved === "dark") !== systemDark;
+        toggle.addEventListener("change", () => {
+            if (toggle.checked) localStorage.setItem("theme", systemDark ? "light" : "dark");
+            else localStorage.removeItem("theme");
+        });
+    } catch {}
+</script>
+
+<main>
+
+<p>This page doesn’t exist. <a href="/">Go back home</a>.</p>
+
+</main>
+
+</body>
+</html>

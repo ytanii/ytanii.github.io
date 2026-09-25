@@ -2,20 +2,48 @@
     box-sizing: border-box;
 }
 
-html{
-    color-scheme: light;
+:root {
+    color-scheme: light dark;
+    --bg: light-dark(#FAF9F6, #1a1917);
+    --text: light-dark(#1f2937, #d6d3cd);
+    --text-soft: light-dark(#374151, #c4c0b8);
+    --heading: light-dark(#111827, #f3f1ec);
+    --muted: light-dark(#4b5563, #a8a49c);
+    --faint: light-dark(#6b7280, #8f8b84);
+    --border: light-dark(#e5e3de, #33312d);
+    --link: light-dark(#2563eb, #7aa2f7);
+    --link-hover: light-dark(#1d4ed8, #a5c0fa);
+    --focus: light-dark(rgb(37 99 235 / 25%), rgb(122 162 247 / 35%));
+    --pitt: light-dark(#003594, #FFB81C);
+    --java: light-dark(#ED8B00, #F29A1F);
+    --python: light-dark(#3776AB, #6FA8DC);
+    --c: light-dark(#00599C, #5B9BD5);
+}
+
+/* The theme toggle flips whichever scheme the system prefers */
+@media (prefers-color-scheme: light) {
+    :root:has(#theme:checked) {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:has(#theme:checked) {
+        color-scheme: light;
+    }
 }
 
 body {
-    background: #FAF9F6;
+    background: var(--bg);
     margin: 0 auto;
-    color: #1f2937;
+    color: var(--text);
     padding: 3rem 1.5rem;
     max-width: 48rem;
     font-family: "Lato", sans-serif;
     font-size: 1.125rem;
     line-height: 1.65;
     letter-spacing: 0.01rem;
+    transition: background-color 200ms ease, color 200ms ease;
 }
 
 h1,h2,p,ul {
@@ -24,8 +52,13 @@ h1,h2,p,ul {
 
 .bold {
     font-weight: 700;
-    color: #111827;
+    color: var(--heading);
 }
+
+.pitt { color: var(--pitt); }
+.java { color: var(--java); }
+.python { color: var(--python); }
+.c { color: var(--c); }
 
 main {
     max-width: 42rem;
@@ -60,9 +93,13 @@ h2 {
     max-width: 40rem;
 }
 
+.about p + p {
+    margin-top: 1.25rem;
+}
+
 .name {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
-    color: #111827;
+    color: var(--heading);
     font-weight: 700;
     letter-spacing: -0.04em;
     text-decoration: none;
@@ -70,7 +107,7 @@ h2 {
 
 
 a {
-    color: #2563eb;
+    color: var(--link);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
     transition: color 150ms ease,
@@ -78,39 +115,40 @@ a {
 }
 
 a:hover {
-    color: #1d4ed8;
+    color: var(--link-hover);
 }
 
 a:focus-visible {
     border-radius: 0.15rem;
-    outline: 3px solid rgb(37 99 235 / 25%);
+    outline: 3px solid var(--focus);
     outline-offset: 4px;
 }
 
 .nav-bar a:not(.name) {
-    color: #4b5563;
+    color: var(--muted);
     text-decoration: none;
 }
 
 .nav-bar a:not(.name):hover,
 .nav-bar a[aria-current="page"] {
-    color: #111827;
+    color: var(--heading);
 }
 
 
 .download-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3em;
+    position: relative;
 }
 
 .download-icon {
-    opacity: 0;
     width: 1rem;
     height: 1rem;
-    transform: translateY(1px);
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.25em);
+    opacity: 0;
+    transform: translateY(-45%);
+    pointer-events: none;
     transition: opacity 150ms ease;
-
 }
 
 .download-link:hover .download-icon,
@@ -118,7 +156,51 @@ a:focus-visible {
     opacity: 1;
 }
 
-main > ul:not(.project-list) {
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    padding: 0.2rem;
+    border-radius: 50%;
+    color: var(--muted);
+    cursor: pointer;
+    translate: 0 0.2em;
+    margin-left: 0.5rem;
+    transition: color 150ms ease;
+}
+
+.theme-toggle:hover {
+    color: var(--heading);
+}
+
+.theme-toggle:has(:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.theme-toggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.theme-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: transform 400ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.theme-toggle :checked + .theme-icon {
+    transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .theme-icon {
+        transition: none;
+    }
+}
+
+.contact-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.25rem;
@@ -137,14 +219,28 @@ main > ul:not(.project-list) {
 
 .project-list li {
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid #e5e3de;
-    color: #374151;
-    font-size: 1.1rem;
-    font-weight: 400;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-soft);
 }
 
 .project-list li:last-child {
     border-bottom: 0;
+}
+
+.project-list h2 {
+    margin-bottom: 0.15rem;
+    color: var(--heading);
+    font-size: 1.15rem;
+}
+
+.project-list p {
+    margin-bottom: 0;
+}
+
+.project-list .meta {
+    margin-bottom: 0.5rem;
+    color: var(--faint);
+    font-size: 0.9rem;
 }
 
 @media (max-width: 40rem) {
